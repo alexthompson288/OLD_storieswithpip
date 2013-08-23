@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	console.log('ready');
-	addLinkToAllWords('pin is in the pit');
+	addLinkToAllWords('cake');
 	$('.story-text a').click(activateReadingPad);
 });
 

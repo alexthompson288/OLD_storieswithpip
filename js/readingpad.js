@@ -1,3 +1,6 @@
+
+
+
 function activateReadingPad(){
 	clearReadingpad();
 	clearWholeWordAudio();
@@ -52,6 +55,43 @@ function addLinkToAllWords(sentence){
 	}
 }
 
+function addSplitDigraphSecondLetterDiv(word){
+	var lastIndex = word.word.length-1;
+	console.log(word.word[lastIndex]);
+	letterCountVariable = 'single';
+	var letterAndSoundContainerDiv ='<div class="readingpad-total-height ' + ' ' + letterCountVariable + '-letter-container">\ ';
+
+	var letterContainerDiv = '<div class="readingpad-letter-area ' + letterCountVariable + '-letter-letter">\ ';
+	var firstLetter = word.word[lastIndex];
+	var firstLetter = '<p class="' + letterCountVariable + '-letter-first-letter">' + firstLetter +'</p>\ ';
+	var secondLetter = '<p class="' + letterCountVariable + '-letter-second-letter">' + secondLetter +'</p>\ ';
+	var thirdLetter = '<p class="' + letterCountVariable + '-letter-third-letter">' + thirdLetter +'</p>\ ';
+
+	// Number of letters that will populate a template
+	var letters; 
+	if(letterCountVariable === 'single'){
+		letters = firstLetter;
+	}
+	else if(letterCountVariable === 'double'){
+		letters = firstLetter + secondLetter;
+	}
+	else if(letterCountVariable === 'treble'){
+		letters = firstLetter + secondLetter + thirdLetter;
+	};
+
+	var closeLetterContainerDiv = '</div>\ ';
+
+	var closeLetterAndSoundContainer = '</div>\ ';
+
+	var dynamicLetterReadingPadDiv = 	letterAndSoundContainerDiv + 
+										letterContainerDiv +
+										letters + 
+										closeLetterContainerDiv +
+										closeLetterAndSoundContainer;
+
+	console.log(dynamicLetterReadingPadDiv);
+	$('.readingpad-all-sound-container').append(dynamicLetterReadingPadDiv);
+}
 
 // findWord
 
@@ -61,16 +101,25 @@ function addLinkToAllWords(sentence){
 
 function createPhonemeDiv(phoneme){
 
-	if(phoneme.phoneme.length === 1){
+	if(phoneme.phoneme[1] === "-"){
 		letterCountVariable = 'single';
 	}
-	else if(phoneme.phoneme.length === 2)
-	{
-		letterCountVariable = 'double';
+
+	else{
+		if(phoneme.phoneme.length === 1){
+			letterCountVariable = 'single';
+		}
+		else if(phoneme.phoneme.length === 2)
+		{
+			letterCountVariable = 'double';
+		}
+		else if(phoneme.phoneme.length === 3){
+			letterCountVariable = 'treble';
+		}
 	}
-	else if(phoneme.phoneme.length === 3){
-		letterCountVariable = 'treble';
-	}
+
+
+
 	console.log('LetterCountVariable is ' + letterCountVariable);
 
 	// Instantiate variables for letters in single, digraphs and trigraphs
@@ -80,7 +129,6 @@ function createPhonemeDiv(phoneme){
 	var thirdLetter = phoneme.phoneme[2];
 
 	// Template for div that will take letters for a phoneme and show the right sound button with correct classes
-
 
 
 					
@@ -108,7 +156,7 @@ function createPhonemeDiv(phoneme){
 
 	var closeLetterContainerDiv = '</div>\ ';
 	var mneumonicPathHelper = replaceSpaceWithUnderscore(phoneme.mneumonic);
-	var phonemeAudioPath = 'resources/audio/phonemes/benny_phoneme_' + phoneme.phoneme + '_' + phoneme.grapheme + '_' + mneumonicPathHelper + '.wav';
+	var phonemeAudioPath = 'resources/audio/phonemes/benny_phoneme_' + phoneme.grapheme + '_' + phoneme.phoneme + '_' + mneumonicPathHelper + '.wav';
 	var soundButtonAudioTag = '<audio id="phoneme-id-' + phoneme.phoneme + '" src="' + phonemeAudioPath + '"  preload="auto" autobuffer></audio>\ ';
 	var soundButtonLink = '<a href="#" onClick="EvalSound(\'phoneme-id-'+ phoneme.phoneme +'\')"><p class="indent-text phoneme-sound-button-p"></p></a>\ ';
 	var soundButtonContainer = '<div class="' + letterCountVariable + '-letter-button readingpad-button-area">\ ' + soundButtonAudioTag + soundButtonLink + '</div>\ ';
@@ -134,6 +182,9 @@ function loopPhonemesinWord(word){
 		var phoneme = word.ordered_phonemes[i];
 		console.log(phoneme.phoneme);
 		createPhonemeDiv(phoneme);
+	}
+	if(word.splitdiagraph){
+		addSplitDigraphSecondLetterDiv(word);
 	}
 }
 
