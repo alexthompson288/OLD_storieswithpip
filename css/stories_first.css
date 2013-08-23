@@ -1,0 +1,206 @@
+@font-face {
+  font-family: 'pipfont';
+  src: url('../font/pipfont.ttf') format('truetype');
+}
+
+/*Readingpad css instructions*/
+
+body{
+	width: 1024px;
+	height: 690px;
+	background-color: white;
+	font-family:"pipfont","Arial",Georgia,Serif;
+}
+
+h1, h2, h3, h4, p{
+	margin: 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+/*Contains entire reading pad and all associated elements
+*/
+.ipad-container{
+	width: 1024px;
+	height: 690px;
+	border: 1px solid black;
+	position:relative;
+}
+
+/*Body of the reading pad
+*/
+.readingpad-frame{
+	position: absolute;
+	bottom: 0px;
+	left: 15%;
+	display: none;
+}
+
+/*All letters that appear in reading pad
+*/
+.readingpad-frame p{
+	position: absolute;
+	bottom: 10%;
+	left: 15%;
+	font-size: 86px;
+}
+
+.readingpad-body{
+	
+}
+
+/*The letter container and sound button images and hover effects for letters
+*/
+.readingpad-body img{
+	width: 100%;
+}
+
+/*Play button*/
+
+.play-whole-word-container{
+	width: 108px;
+	height: 114px;
+	position: absolute;
+	top: 20%;
+	left: 46%;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	background: url('../resources/readingpad/general_button_play_sprite_fruitmachine.png') 0 0;
+}
+
+.play-whole-word-container:hover{
+	background: url('../resources/readingpad/general_button_play_sprite_fruitmachine.png') 0 -108px;
+}
+
+.play-whole-word-button{
+	position: absolute;
+	width: 108px;
+	height: 114px;
+}
+
+
+/*Container for just letters and sound buttons
+*/
+.readingpad-all-sound-container{
+	width: 64%%;
+	position: absolute;
+	bottom: 10%;
+	left: 19.5%;
+	height: 48%;
+}
+
+/*Containing div configuration for single letters and their sound buttons
+*/
+.single-letter-container{
+	width: 16.66666%;
+	position: absolute;
+}
+
+/*Containing div configuration for double letters and their sound buttons
+*/
+.double-letter-container{
+	width: 32.333333%;
+	position: absolute;
+}
+
+/*The letter part of the div
+*/
+.readingpad-letter-area{
+	height: 60%;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	
+}
+
+.readingpad-letter-area:hover{
+	background: rgba(200, 54, 54, 0.5); 
+	color: white;
+}
+
+/*Provide background containers for letters - both single and double
+*/
+/*.single-letter-letter{
+	background: url('../resources/readingpad/special_fruitmachine_farm_0_letterslot_single_zoom.png') no-repeat;
+}
+
+.double-letter-letter{
+	background: url('../resources/readingpad/special_fruitmachine_farm_0_letterslot_double_zoom.png') no-repeat;
+}*/
+
+/*Position the second letter of a digraph*/
+
+p.double-letter-first-letter{
+	left: 10%;
+}
+
+p.double-letter-second-letter{
+	left: 69%;
+}
+
+/*Sound button part of the div
+*/.readingpad-button-area{
+	height: 25%;
+	bottom: 6%;
+	position: absolute;
+	width: 100%;
+}
+
+/*The height of all divs that contain letters and sound buttons
+*/
+.readingpad-total-height{
+	height: 100%;
+}
+
+Empty star divs
+.empty-star{
+
+}
+
+/*Position of 6 slots for 6 letter reading pad*/
+
+.readingpad-position-0{
+	position: absolute;
+	left: 0%;
+}
+
+.readingpad-position-1{
+	position: absolute;
+	left: 16.6666666666666666666%;
+}
+
+.readingpad-position-2{
+	position: absolute;
+	left: 33.333333333333333333%;
+}
+
+.readingpad-position-3{
+	position: absolute;
+	left: 50%;
+}
+
+.readingpad-position-4{
+	position: absolute;
+	left: 66.6666666666666666%;
+}
+
+.readingpad-position-5{
+	position: absolute;
+	left: 83.333333333333333%;
+}
+
+/*Story page and position the image of the story*/
+.story-page{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: url('../resources/storyart/unit 4_5.jpg') no-repeat; 
+}
+
+.story-text{
+	padding: 1% 10%;
+	font-size: 20pt;
+}

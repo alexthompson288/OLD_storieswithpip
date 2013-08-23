@@ -1,0 +1,11 @@
+body{
+	width: 1024px;
+	height: 690px;
+	background-color: white;
+}
+
+.ipad-container{
+	width: 1024px;
+	height: 690px;
+	border: 1px solid black;
+}
