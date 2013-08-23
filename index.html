@@ -21,11 +21,13 @@
 			<div class="readingpad-body">
 				<img src='resources/readingpad/special_fruitmachine_farm_0_body_zoom.png'>
 				<div class="play-whole-word-container">
-						<a href="#" class="play-whole-word-button">play</a>
+						<audio id="playWholeWord" src=""  preload="auto" autobuffer>
+                            </audio>
+						<a href="#" class="play-whole-word-button" id='play-button-push' onClick="EvalSound('playWholeWord')">play</a>
 				</div>
 
 				<div class="readingpad-all-sound-container">
-
+					
 				</div>
 				
 			</div>

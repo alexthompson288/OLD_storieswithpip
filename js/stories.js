@@ -3,14 +3,17 @@ $(document).ready(function(){
 
 	addLinkToAllWords('sun in the rain');
 
+
 	
 
-	$('a').click(function(){
+	$('.story-text a').click(function(){
 		clearReadingpad();
+		clearWholeWordAudio();
 		padWord = $(this).html();
 		console.log(padWord);
 		findWord(padWord);
-		$('.readingpad-frame').fadeToggle();
+		addAudioToWholeWordButton(padWord);
+		$('.readingpad-frame').fadeIn();
 		
 	});
 });
@@ -24,21 +27,21 @@ var words = [
 		phoneme: 's',
 		grapheme: 's',
 		phonemeaudio: 's_s_sneaky_snake.wav',
-		mnemonic: 's_s_sneaky_snake.png'
+		mneumonic: 'sneaky_snake'
 	},
 	{
 		id: 14,
 		phoneme: 'u',
 		grapheme: 'uh',
 		phonemeaudio: 'u_uh_ugly_umbrella.wav',
-		mnemonic: 'u_uh_ugly_umbrella.png'
+		mneumonic: 'ugly_umbrella'
 	},
 	{
 		id: 44,
 		phoneme: 'n',
 		grapheme: 'n',
 		phonemeaudio: 'n_n_naughty_nose.wav',
-		mnemonic: 'n_n_naughty_nose.png'
+		mneumonic: 'naughty_nose'
 	}]
 		 
 },
@@ -50,26 +53,61 @@ var words = [
 		phoneme: 'r',
 		grapheme: 'r',
 		phonemeaudio: 'r_r_rich_rat.wav',
-		mnemonic: 'r_r_rich_rat.png'
+		mneumonic: 'rich_rat'
 	},
 	{
 		id: 14,
 		phoneme: 'ai',
 		grapheme: 'ai',
 		phonemeaudio: 'ai_ay_train_in_the_rain.wav',
-		mnemonic: 'ai_ay_train_in_the_rain.png'
+		mneumonic: 'train_in_the_rain'
 	},
 	{
 		id: 44,
 		phoneme: 'n',
 		grapheme: 'n',
 		phonemeaudio: 'n_n_naughty_nose.wav',
-		mnemonic: 'n_n_naughty_nose.png'
+		mneumonic: 'naughty_nose'
 	}]
 		 
 }
 
 ];
+
+//Use this to play audio files upon click
+function EvalSound(soundobj) {
+    var thissound=document.getElementById(soundobj);
+    thissound.play();
+ }
+
+// Sets the audio for the play whole word button
+function addAudioToWholeWordButton(word){
+	// adds audio for the play button
+	$('#playWholeWord').attr('src','resources/audio/words/' + word + '.wav');
+	console.log('word set in the html is '+word);
+}
+
+// clears the audio src attribute for the play whole word button
+function clearWholeWordAudio(){
+	$('#playWholeWord').attr('src',' ');
+}
+	// adds the audio for the sound buttons
+	// needs logic for digraphs, trigraphs and split digraphs here
+	// needs to add the change to colour of letter and bg when either letter or sound button is pushed	
+
+
+function addAudioToPhonemeButtons(phoneme){
+
+var srcAttr = 'benny_phoneme_' + phoneme.phoneme + phoneme.grapheme + phoneme.mneumonic + '.wav';
+var soundButtonHtml = 	'<audio id="phoneme-id-' + phoneme + '" src="' +  srcAttr + '"  preload="auto" autobuffer></audio>' +  
+                        '<a href="#" class="fruitmachine-button" id="play-button-push" onClick="EvalSound(\'audio2\')">';
+console.log(soundButtonHtml + ' is the sound');
+	for (var i=0 ; i < length ; i++){
+		var p = i+1;
+		$('#audio'+p).attr('src','assets/resources/audio/'+correctWord[i]+'.wav');
+	}
+}
+
 
 
 function clearReadingpad(){
@@ -145,8 +183,10 @@ function createPhonemeDiv(phoneme){
 	};
 
 	var closeLetterContainerDiv = '</div>\ ';
-	var soundButtonLink = '<a href="#"><p class="indent-text"></p></a>\ ';
-	var soundButtonContainer = '<div class="' + letterCountVariable + '-letter-button readingpad-button-area">\ ' + soundButtonLink + '</div>\ ';
+	var phonemeAudioPath = 'resources/audio/phonemes/benny_phoneme_' + phoneme.phoneme + '_' + phoneme.grapheme + '_' + phoneme.mneumonic + '.wav';
+	var soundButtonAudioTag = '<audio id="phoneme-id-' + phoneme.phoneme + '" src="' + phonemeAudioPath + '"  preload="auto" autobuffer></audio>\ ';
+	var soundButtonLink = '<a href="#" onClick="EvalSound(\'phoneme-id-'+ phoneme.phoneme +'\')"><p class="indent-text phoneme-sound-button-p"></p></a>\ ';
+	var soundButtonContainer = '<div class="' + letterCountVariable + '-letter-button readingpad-button-area">\ ' + soundButtonAudioTag + soundButtonLink + '</div>\ ';
 
 	var closeLetterAndSoundContainer = '</div>\ ';
 
@@ -188,18 +228,3 @@ function findWord(myWord){
 	}
 }
 
-
-
-function addAudioToButtons(){
-	// adds audio for the play button
-$('#audio7').attr('src','assets/game/audio/'+correctWord+'.wav');
-
-	// adds the audio for the sound buttons
-	// needs logic for digraphs, trigraphs and split digraphs here
-	// needs to add the change to colour of letter and bg when either letter or sound button is pushed	 
-var length = correctWord.length;
-	for (var i=0 ; i < length ; i++){
-		var p = i+1;
-		$('#audio'+p).attr('src','assets/game/audio/'+correctWord[i]+'.wav');
-	}
-}
