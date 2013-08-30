@@ -5,7 +5,7 @@ function activateReadingPad(){
 	clearReadingpad();
 	clearWholeWordAudio();
 	padWord = $(this).html();
-	console.log(padWord);
+	// console.log(padWord);
 	findWord(padWord);
 	addAudioToWholeWordButton(padWord);
 	$('.readingpad-frame').fadeIn();	
@@ -23,7 +23,7 @@ function EvalSound(soundobj) {
 function addAudioToWholeWordButton(word){
 	// adds audio for the play button
 	$('#playWholeWord').attr('src','resources/audio/words/' + word + '.wav');
-	console.log('word set in the html is '+word);
+	// console.log('word set in the html is '+word);
 }
 
 // clears the audio src attribute for the play whole word button
@@ -49,15 +49,15 @@ function addLinkToAllWords(sentence){
 	var wordArray = sentence.split(" ");
 	lengthOfWordArray = wordArray.length;
 	for(var t = 0 ; t < lengthOfWordArray ; t++){
-		var linkHtml = '<a href="#" id="word-' + wordArray[t] + '">' + wordArray[t] + '</a> ';
-		console.log(linkHtml);
+		var linkHtml = '<a href="#" class=" " id="word-' + wordArray[t] + '">' + wordArray[t] + '</a> ';
+		// console.log(linkHtml);
 		$('.story-page h1').append(linkHtml);
 	}
 }
 
 function addSplitDigraphSecondLetterDiv(word){
 	var lastIndex = word.word.length-1;
-	console.log(word.word[lastIndex]);
+	// console.log(word.word[lastIndex]);
 	letterCountVariable = 'single';
 	var letterAndSoundContainerDiv ='<div class="readingpad-total-height ' + ' ' + letterCountVariable + '-letter-container">\ ';
 
@@ -99,7 +99,7 @@ function addSplitDigraphSecondLetterDiv(word){
 // Loop through each phoneme and put it in a single or a double sized div.  
 // If double, split the letters and put them in the p tags
 
-function createPhonemeDiv(phoneme){
+function createPhonemeDivWithAudioButtons(phoneme){
 
 	if(phoneme.phoneme[1] === "-"){
 		letterCountVariable = 'single';
@@ -163,6 +163,7 @@ function createPhonemeDiv(phoneme){
 
 	var closeLetterAndSoundContainer = '</div>\ ';
 
+
 	var dynamicLetterReadingPadDiv = 	letterAndSoundContainerDiv + 
 										letterContainerDiv +
 										letters + 
@@ -174,19 +175,108 @@ function createPhonemeDiv(phoneme){
 	$('.readingpad-all-sound-container').append(dynamicLetterReadingPadDiv);
 }
 
+
+function createPhonemeDivWithoutAudioButtons(phoneme){
+
+	if(phoneme.phoneme[1] === "-"){
+		letterCountVariable = 'single';
+	}
+
+	else{
+		if(phoneme.phoneme.length === 1){
+			letterCountVariable = 'single';
+		}
+		else if(phoneme.phoneme.length === 2)
+		{
+			letterCountVariable = 'double';
+		}
+		else if(phoneme.phoneme.length === 3){
+			letterCountVariable = 'treble';
+		}
+	}
+
+
+
+	console.log('LetterCountVariable is ' + letterCountVariable);
+
+	// Instantiate variables for letters in single, digraphs and trigraphs
+	
+	var firstLetter = phoneme.phoneme[0];
+	var secondLetter = phoneme.phoneme[1];
+	var thirdLetter = phoneme.phoneme[2];
+
+	// Template for div that will take letters for a phoneme and show the right sound button with correct classes
+
+
+					
+	// Variables that can be changed to create the template above			
+
+	var letterAndSoundContainerDiv ='<div class="readingpad-total-height ' + ' ' + letterCountVariable + '-letter-container">\ ';
+
+	var letterContainerDiv = '<div class="readingpad-letter-area ' + letterCountVariable + '-letter-letter">\ ';
+
+	var firstLetter = '<p class="' + letterCountVariable + '-letter-first-letter">' + firstLetter +'</p>\ ';
+	var secondLetter = '<p class="' + letterCountVariable + '-letter-second-letter">' + secondLetter +'</p>\ ';
+	var thirdLetter = '<p class="' + letterCountVariable + '-letter-third-letter">' + thirdLetter +'</p>\ ';
+
+	// Number of letters that will populate a template
+	var letters; 
+	if(letterCountVariable === 'single'){
+		letters = firstLetter;
+	}
+	else if(letterCountVariable === 'double'){
+		letters = firstLetter + secondLetter;
+	}
+	else if(letterCountVariable === 'treble'){
+		letters = firstLetter + secondLetter + thirdLetter;
+	};
+
+	var closeLetterContainerDiv = '</div>\ ';
+	var mneumonicPathHelper = replaceSpaceWithUnderscore(phoneme.mneumonic);
+	var phonemeAudioPath = 'resources/audio/phonemes/benny_phoneme_' + phoneme.grapheme + '_' + phoneme.phoneme + '_' + mneumonicPathHelper + '.wav';
+	var soundButtonAudioTag = '<audio id="phoneme-id-' + phoneme.phoneme + '" src="' + phonemeAudioPath + '"  preload="auto" autobuffer></audio>\ ';
+	var soundButtonLink = '<a href="#" onClick="EvalSound(\'phoneme-id-'+ phoneme.phoneme +'\')"><p class="indent-text phoneme-sound-button-p"></p></a>\ ';
+	var soundButtonContainer = '<div class="' + letterCountVariable + '-letter-button readingpad-button-area">\ ' + soundButtonAudioTag + soundButtonLink + '</div>\ ';
+
+	var closeLetterAndSoundContainer = '</div>\ ';
+
+
+	var dynamicLetterReadingPadDiv = 	letterAndSoundContainerDiv + 
+										letterContainerDiv +
+										letters + 
+										closeLetterContainerDiv +
+										
+										closeLetterAndSoundContainer;
+
+	console.log(dynamicLetterReadingPadDiv);
+	$('.readingpad-all-sound-container').append(dynamicLetterReadingPadDiv);
+}
+
+
+
+
 // Loop through the phonemes and run the write div function for each one
 
 function loopPhonemesinWord(word){
 	var numberOfPhonemes = word.ordered_phonemes.length;
 	for(var i=0; i < numberOfPhonemes; i++){
 		var phoneme = word.ordered_phonemes[i];
-		console.log(phoneme.phoneme);
-		createPhonemeDiv(phoneme);
+		// console.log(phoneme.phoneme);
+		if(word.nondecodable || word.tricky === true){
+			createPhonemeDivWithoutAudioButtons(phoneme);
+			console.log(word.word + 'is ' + word.tricky + word.nondecodable);
+		}
+		else{
+			createPhonemeDivWithAudioButtons(phoneme);
+			console.log(word.word + 'is ' + word.tricky + word.nondecodable);
+		}
 	}
 	if(word.splitdiagraph){
 		addSplitDigraphSecondLetterDiv(word);
 	}
 }
+
+
 
 
 function findWord(myWord){
@@ -195,10 +285,10 @@ function findWord(myWord){
 	for(var p = 0 ; p < totalWords ; p++){
 		var word = words[p];
 
-		console.log(word.word);
+		// console.log(word.word);
 
 		if(word.word === myWord){
-			console.log("WE FOUND " + word.word);
+			// console.log("WE FOUND " + word.word);
 			loopPhonemesinWord(word);
 		}
 	}
