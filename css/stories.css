@@ -254,6 +254,19 @@ Empty star divs
 	float: left;
 }
 
+/*Story pages styles*/
+.next-page{
+	position: absolute;
+	right: 20px;
+	top: 50%;
+}
+
+.previous-page{
+	position: absolute;
+	left: 20px;
+	top: 50%;
+}
+
 .width-50-percent{
 	width: 50%;
 }
