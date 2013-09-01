@@ -222,7 +222,7 @@ Empty star divs
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	background: url('../resources/storyart/unit 4_5.jpg') no-repeat; 
+	background-image: url(''); 
 }
 
 /* Bookshelf css styling */
