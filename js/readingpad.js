@@ -1,5 +1,25 @@
 
 
+idleTime = 0;
+$(document).ready(function () {
+    //Increment the idle time counter every minute.
+    var idleInterval = setInterval("timerIncrement()", 1000); // 1 minute
+
+    //Zero the idle timer on mouse movement.
+    $('html').mousemove(function (e) {
+        idleTime = 0;
+    });
+    $('html').keypress(function (e) {
+        idleTime = 0;
+    });
+})
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    if (idleTime > 3) { // 20 minutes
+        $('.readingpad-frame').fadeOut();
+    }
+}
+
 
 function activateReadingPad(){
 	clearReadingpad();
@@ -8,7 +28,11 @@ function activateReadingPad(){
 	// console.log(padWord);
 	findWord(padWord);
 	addAudioToWholeWordButton(padWord);
-	$('.readingpad-frame').fadeIn();	
+	$('.readingpad-frame').fadeIn();
+	$('.sound-button-general').click(function(){
+		$(this).siblings().addClass('background-highlight');
+	});
+
 }
 
 // var words = [{"ccvc":false,"completed":false,"cvc":false,"cvcc":false,"diagraph":false,"entrypoint_session":1,"entrypointmodule":1,"entrypointunit":1,"id":3,"imagepossible":false,"imagerequired":false,"nondecodable":true,"nonsense":false,"numletters":null,"numphonemes":1,"numsyllables":1,"ordered_phonemes":[{"completed":true,"created_at":"2013-01-13T19:17:03Z","grapheme":"a","id":2,"imagepossible":true,"mneumonic":"angry ant","mneumonic_two":"","phoneme":"a","updated_at":"2013-05-30T13:37:45Z"}],"splitdiagraph":false,"startingletter":null,"tricky":true,"word":"a"},{"ccvc":false,"completed":true,"cvc":true,"cvcc":false,"diagraph":false,"entrypoint_session":null,"entrypointmodule":null,"entrypointunit":null,"id":22,"imagepossible":true,"imagerequired":false,"nondecodable":false,"nonsense":false,"numletters":null,"numphonemes":3,"numsyllables":2,"ordered_phonemes":[{"completed":true,"created_at":"2013-01-13T19:17:56Z","grapheme":"p","id":4,"imagepossible":true,"mneumonic":"pretty pony","mneumonic_two":"","phoneme":"p","updated_at":"2013-05-30T14:13:31Z"},{"completed":true,"created_at":"2013-01-13T19:18:40Z","grapheme":"i","id":6,"imagepossible":true,"mneumonic":"irritable insect","mneumonic_two":"","phoneme":"i","updated_at":"2013-05-30T13:47:37Z"},{"completed":true,"created_at":"2013-01-13T19:18:52Z","grapheme":"n","id":7,"imagepossible":true,"mneumonic":"naughty nose","mneumonic_two":"","phoneme":"n","updated_at":"2013-05-30T14:09:42Z"}],"splitdiagraph":false,"startingletter":null,"tricky":false,"word":"pin"},{"ccvc":false,"completed":false,"cvc":false,"cvcc":false,"diagraph":false,"entrypoint_session":null,"entrypointmodule":null,"entrypointunit":null,"id":10,"imagepossible":false,"imagerequired":false,"nondecodable":false,"nonsense":false,"numletters":null,"numphonemes":2,"numsyllables":1,"ordered_phonemes":[{"completed":true,"created_at":"2013-01-13T19:18:40Z","grapheme":"i","id":6,"imagepossible":true,"mneumonic":"irritable insect","mneumonic_two":"","phoneme":"i","updated_at":"2013-05-30T13:47:37Z"},{"completed":true,"created_at":"2013-05-14T07:39:58Z","grapheme":"dj","id":90,"imagepossible":false,"mneumonic":"treasure on television","mneumonic_two":"","phoneme":"s","updated_at":"2013-06-13T14:12:12Z"}],"splitdiagraph":false,"startingletter":null,"tricky":false,"word":"is"},{"ccvc":false,"completed":null,"cvc":false,"cvcc":null,"diagraph":false,"entrypoint_session":null,"entrypointmodule":null,"entrypointunit":null,"id":19,"imagepossible":null,"imagerequired":false,"nondecodable":null,"nonsense":false,"numletters":null,"numphonemes":2,"numsyllables":1,"ordered_phonemes":[{"completed":true,"created_at":"2013-01-13T19:18:40Z","grapheme":"i","id":6,"imagepossible":true,"mneumonic":"irritable insect","mneumonic_two":"","phoneme":"i","updated_at":"2013-05-30T13:47:37Z"},{"completed":true,"created_at":"2013-01-13T19:18:52Z","grapheme":"n","id":7,"imagepossible":true,"mneumonic":"naughty nose","mneumonic_two":"","phoneme":"n","updated_at":"2013-05-30T14:09:42Z"}],"splitdiagraph":false,"startingletter":null,"tricky":null,"word":"in"},{"ccvc":false,"completed":false,"cvc":false,"cvcc":false,"diagraph":false,"entrypoint_session":15,"entrypointmodule":null,"entrypointunit":3,"id":88,"imagepossible":false,"imagerequired":false,"nondecodable":true,"nonsense":false,"numletters":null,"numphonemes":2,"numsyllables":1,"ordered_phonemes":[{"completed":true,"created_at":"2013-05-13T21:58:18Z","grapheme":"dth","id":89,"imagepossible":true,"mneumonic":"they bathe","mneumonic_two":"","phoneme":"th","updated_at":"2013-06-10T08:47:39Z"},{"completed":false,"created_at":"2013-05-22T22:30:55Z","grapheme":"silent","id":127,"imagepossible":false,"mneumonic":"","mneumonic_two":"","phoneme":"e","updated_at":"2013-05-22T22:30:55Z"}],"splitdiagraph":false,"startingletter":null,"tricky":true,"word":"the"},{"ccvc":false,"completed":true,"cvc":true,"cvcc":false,"diagraph":false,"entrypoint_session":null,"entrypointmodule":null,"entrypointunit":null,"id":14,"imagepossible":true,"imagerequired":false,"nondecodable":false,"nonsense":false,"numletters":null,"numphonemes":3,"numsyllables":1,"ordered_phonemes":[{"completed":true,"created_at":"2013-01-13T19:17:56Z","grapheme":"p","id":4,"imagepossible":true,"mneumonic":"pretty pony","mneumonic_two":"","phoneme":"p","updated_at":"2013-05-30T14:13:31Z"},{"completed":true,"created_at":"2013-01-13T19:18:40Z","grapheme":"i","id":6,"imagepossible":true,"mneumonic":"irritable insect","mneumonic_two":"","phoneme":"i","updated_at":"2013-05-30T13:47:37Z"},{"completed":true,"created_at":"2013-01-13T19:17:15Z","grapheme":"t","id":3,"imagepossible":true,"mneumonic":"terrible troll","mneumonic_two":"","phoneme":"t","updated_at":"2013-05-30T15:02:38Z"}],"splitdiagraph":false,"startingletter":null,"tricky":false,"word":"pit"}];
@@ -159,7 +183,7 @@ function createPhonemeDivWithAudioButtons(phoneme){
 	var phonemeAudioPath = 'resources/audio/phonemes/benny_phoneme_' + phoneme.grapheme + '_' + phoneme.phoneme + '_' + mneumonicPathHelper + '.wav';
 	var soundButtonAudioTag = '<audio id="phoneme-id-' + phoneme.phoneme + '" src="' + phonemeAudioPath + '"  preload="auto" autobuffer></audio>\ ';
 	var soundButtonLink = '<a href="#" onClick="EvalSound(\'phoneme-id-'+ phoneme.phoneme +'\')"><p class="indent-text phoneme-sound-button-p"></p></a>\ ';
-	var soundButtonContainer = '<div class="' + letterCountVariable + '-letter-button readingpad-button-area">\ ' + soundButtonAudioTag + soundButtonLink + '</div>\ ';
+	var soundButtonContainer = '<div class="sound-button-general ' + letterCountVariable + '-letter-button readingpad-button-area">\ ' + soundButtonAudioTag + soundButtonLink + '</div>\ ';
 
 	var closeLetterAndSoundContainer = '</div>\ ';
 
@@ -282,13 +306,17 @@ function loopPhonemesinWord(word){
 function findWord(myWord){
 	var totalWords = words.length;
 	console.log('total words is ' +totalWords);
+	myWord = myWord.toLowerCase(); 
+	myWord = myWord.replace('.', '');
 	for(var p = 0 ; p < totalWords ; p++){
 		var word = words[p];
 
-		// console.log(word.word);
-
+		console.log(word.word);
+		console.log(myWord);
+                                                                           
 		if(word.word === myWord){
-			// console.log("WE FOUND " + word.word);
+			
+			console.log("WE FOUND " + word.word);
 			loopPhonemesinWord(word);
 		}
 	}

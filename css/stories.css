@@ -7,9 +7,12 @@
 
 body{
 	width: 1024px;
-	height: 690px;
+	height: 768px;
 	background-color: white;
 	font-family:"pipfont","Arial",Georgia,Serif;
+	margin: 0px !important;
+	padding: 0px !important;
+	float: left;
 }
 
 h1, h2, h3, h4, p{
@@ -28,9 +31,12 @@ a{
 */
 .ipad-container{
 	width: 1024px;
-	height: 690px;
+	height: 768px;
 	border: 1px solid black;
 	position:relative;
+	margin: 0px !important;
+	padding: 0px !important;
+	float: left;
 }
 
 /*Body of the reading pad
@@ -62,6 +68,15 @@ a{
 }
 
 /*Play button*/
+
+.play-whole-sentence-container{
+	width: 100px;
+	height: 70px;
+	position: absolute;
+	bottom: 80px;
+	left: 50px;
+	font-size: 40pt;
+}
 
 .play-whole-word-container{
 	width: 70px;
@@ -101,6 +116,15 @@ a{
 .single-letter-container{
 	width: 16.66666%;
 	position: absolute;
+}
+
+.sound-button-general{
+
+}
+
+.background-highlight{
+	background-color: rgba(233, 27, 93, 0.5);
+	color: white;
 }
 
 .single-letter-button{
@@ -236,11 +260,14 @@ Empty star divs
 	height: 100%;
 	position: absolute;
 	background: url('../resources/other/book_stories_browser_bg.png') no-repeat; 
+	float:left;
+	padding: 0px;
+	margin: 0px;
 }
 
 .bookshelf-div-container{
 	position: absolute;
-	top: 25%;
+	top: 210px;
 	left: 10%;
 	width: 80%;
 	height: 60%;
@@ -249,23 +276,49 @@ Empty star divs
 .book-cover-div{
 	position: relative;
 	width: 30%;
-	height: 80%;
+	
 	margin-right: 3%;
 	float: left;
 }
 
+.book-cover-div-extra-margin{
+	margin-top: 272px;
+}
+
 /*Story pages styles*/
-.next-page{
+#next-page{
+	position: absolute;
+	right: 15px;
+	top: 44%;
+	width: 119px;
+	height: 152px;
+	background: url('../resources/other/navigational_arrow_right.png') no-repeat;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#previous-page{
+	position: absolute;
+	left: 15px;
+	top: 44%;
+	width: 119px;
+	height: 152px;
+	background: url('../resources/other/navigational_arrow_left.png') no-repeat;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#finish-page{
 	position: absolute;
 	right: 20px;
 	top: 50%;
+	display:none;
+
 }
 
-.previous-page{
-	position: absolute;
-	left: 20px;
-	top: 50%;
-}
+
 
 .width-50-percent{
 	width: 50%;

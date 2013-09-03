@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Stories with Pip</title>
+	
+    <title>Stories with Pip - Homepage</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1">
   	<link href="css/stories.css" rel="stylesheet">
   	<script src='js/jquery.js'></script>
   	<script src='js/word_data_cake.js'></script>
   	<script src='js/readingpad.js'></script>
-  	<script src='js/stories-story1.js'></script>
+  	<script src="js/bookshelf.js"></script>
+  
 </head>
-<body>
-	<div class="ipad-container">
+<body style="margin: 0px; padding: 0px;">
+	
+	<div class="ipad-container" style="margin: 0px; padding: 0px;">
 		
-		<div class="story-page">
-			<div class="story-text">
-				<h1></h1>
+		
+		<div class="bookshelf-container" style="margin: 0px; padding: 0px;">
+			
+			<!-- <div class='back-button'>
+				<a href='#'>
+					<img src='resources/other/back_button.png'
+				</a>
+			</div> -->
+
+			<div class="width-50-percent container-center text-center page-title-bg">
+				<h1>Homepage</h1>
 			</div>
+			<audio src="resources/audio/Castle_01.mp3" autoplay="autoplay">	
+			</audio>
+			<audio id="sparkleAudio" src="resources/audio/general_sparkle2.wav"  preload="auto" autobuffer></audio>
+
+			<div class='bookshelf-div-container homepage'>
+				<div class='homepage-option homepage-option-one'>
+					<a href="wordbank.html" onClick="EvalSound('sparkleAudio')"><h2>Word bank</h2></a>
+				</div>
+
+				<div class='homepage-option homepage-option-two'>
+					<a href="bookshelf.html" onClick="EvalSound('sparkleAudio')"><h2>My Books</h2></a>
+				</div>
+					
+				
+			<div>
 		</div>
 		
 		<div class="readingpad-frame">
@@ -35,5 +61,10 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
 </body>
 </html>

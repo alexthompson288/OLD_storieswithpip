@@ -1,4 +1,5 @@
-var stories = [{"created_at":"2013-05-24T12:57:22Z",
+var stories = [
+{"created_at":"2013-05-24T12:57:22Z",
 "id":1,
 "programunit_id":2,
 "title":"Pat sat",
