@@ -1,0 +1,430 @@
+@font-face {
+  font-family: 'pipfont';
+  src: url('../font/pipfont.ttf') format('truetype');
+}
+
+/*Readingpad css instructions*/
+
+body{
+	width: 1024px;
+	height: 768px;
+	background-color: white;
+	font-family:"pipfont","Arial",Georgia,Serif;
+	margin: 0px !important;
+	padding: 0px !important;
+	float: left;
+}
+
+h1, h2, h3, h4, p{
+	margin: 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+.clear{
+	clear: both;
+}
+
+/*Contains entire reading pad and all associated elements
+*/
+.ipad-container{
+	width: 1024px;
+	height: 768px;
+	border: 1px solid black;
+	position:relative;
+	margin: 0px !important;
+	padding: 0px !important;
+	float: left;
+}
+
+/*Body of the reading pad
+*/
+.readingpad-frame{
+	position: absolute;
+	bottom: 0px;
+	left: 15%;
+	display: none;
+}
+
+/*All letters that appear in reading pad
+*/
+.readingpad-frame p{
+	position: absolute;
+	bottom: 10%;
+	left: 15%;
+	font-size: 86px;
+}
+
+.readingpad-body{
+	
+}
+
+/*The letter container and sound button images and hover effects for letters
+*/
+.readingpad-body img{
+	width: 100%;
+}
+
+/*Play button*/
+
+.play-whole-sentence-container{
+	width: 100px;
+	height: 70px;
+	position: absolute;
+	bottom: 80px;
+	left: 50px;
+	font-size: 40pt;
+}
+
+.play-whole-word-container{
+	width: 70px;
+	height: 74px;
+	position: absolute;
+	top: 23%;
+	left: 49%;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	background: url('../resources/readingpad/general_button_play_sprite_fruitmachine.png') 0 0;
+}
+
+.play-whole-word-container:hover{
+	background: url('../resources/readingpad/general_button_play_sprite_fruitmachine.png') 0 -72px;
+}
+
+.play-whole-word-button{
+	position: absolute;
+	width: 70px;
+	height: 74px;
+}
+
+
+/*Container for just letters and sound buttons
+*/
+.readingpad-all-sound-container{
+	width: 64%%;
+	position: absolute;
+	bottom: 10%;
+	left: 19.5%;
+	height: 48%;
+}
+
+/*Containing div configuration for single letters and their sound buttons
+*/
+.single-letter-container{
+	width: 16.66666%;
+	position: absolute;
+}
+
+.sound-button-general{
+
+}
+
+.background-highlight{
+	background-color: rgba(233, 27, 93, 0.5);
+	color: white;
+}
+
+.single-letter-button{
+	background: url('../resources/readingpad/round_buttons.png') -69px 239px;;
+}
+
+.single-letter-button:hover{
+	background: url('../resources/readingpad/round_buttons.png') -138px 162px;;
+}
+
+.phoneme-sound-button-p{
+	width: 50px;
+	height: 50px;
+}
+
+/*Containing div configuration for double letters and their sound buttons
+*/
+.double-letter-container{
+	width: 32.333333%;
+	position: absolute;
+}
+
+/*The letter part of the div
+*/
+.readingpad-letter-area{
+	height: 60%;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	
+}
+
+.readingpad-letter-area:hover{
+	background: rgba(200, 54, 54, 0.5); 
+	color: white;
+}
+
+/*Provide background containers for letters - both single and double
+*/
+/*.single-letter-letter{
+	background: url('../resources/readingpad/special_fruitmachine_farm_0_letterslot_single_zoom.png') no-repeat;
+}
+
+.double-letter-letter{
+	background: url('../resources/readingpad/special_fruitmachine_farm_0_letterslot_double_zoom.png') no-repeat;
+}*/
+
+/*Position the second letter of a digraph*/
+
+p.double-letter-first-letter{
+	left: 10%;
+}
+
+p.double-letter-second-letter{
+	left: 69%;
+}
+
+/*Sound button part of the div
+*/.readingpad-button-area{
+	height: 25%;
+	bottom: 6%;
+	position: absolute;
+	width: 100%;
+}
+
+/*The height of all divs that contain letters and sound buttons
+*/
+.readingpad-total-height{
+	height: 100%;
+	position: relative;
+	float: left;
+}
+
+Empty star divs
+.empty-star{
+
+}
+
+/*Position of 6 slots for 6 letter reading pad*/
+
+/*.readingpad-position-0{
+	position: absolute;
+	left: 0%;
+}
+
+.readingpad-position-1{
+	position: absolute;
+	left: 16.6666666666666666666%;
+}
+
+.readingpad-position-2{
+	position: absolute;
+	left: 33.333333333333333333%;
+}
+
+.readingpad-position-3{
+	position: absolute;
+	left: 50%;
+}
+
+.readingpad-position-4{
+	position: absolute;
+	left: 66.6666666666666666%;
+}
+
+.readingpad-position-5{
+	position: absolute;
+	left: 83.333333333333333%;
+}*/
+
+.indent-text{
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/*Story page and position the image of the story*/
+.story-page{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-image: url(''); 
+}
+
+/* Bookshelf css styling */
+
+.bookshelf-page .story-page{
+	display: none;
+}
+
+.bookshelf-container{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: url('../resources/other/book_stories_browser_bg.png') no-repeat; 
+	float:left;
+	padding: 0px;
+	margin: 0px;
+}
+
+.bookshelf-div-container{
+	position: absolute;
+	top: 210px;
+	left: 10%;
+	width: 80%;
+	height: 60%;
+}
+
+.book-cover-div{
+	position: relative;
+	width: 30%;
+	
+	margin-right: 3%;
+	float: left;
+}
+
+.book-cover-div-extra-margin{
+	margin-top: 272px;
+}
+
+/*Story pages styles*/
+#next-page{
+	position: absolute;
+	right: 15px;
+	top: 44%;
+	width: 119px;
+	height: 152px;
+	background: url('../resources/other/navigational_arrow_right.png') no-repeat;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#previous-page{
+	position: absolute;
+	left: 15px;
+	top: 44%;
+	width: 119px;
+	height: 152px;
+	background: url('../resources/other/navigational_arrow_left.png') no-repeat;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#finish-page{
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	display:none;
+
+}
+
+
+
+.width-50-percent{
+	width: 50%;
+}
+
+.container-center{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.page-title-bg{
+	background: url('../resources/bg_containers/title_container.png') no-repeat;
+	height: 100px;
+	padding-top: 20px;
+	
+}
+
+.back-button{
+	float: left;
+}
+
+/*Homepage styling*/
+
+.homepage-option{
+position: relative;
+float: left;
+width: 350px;
+margin-right: 40px;
+height: 260px;
+
+}
+
+.homepage-option h2{
+	position: absolute;
+	top: 110px;
+	left: 70px;
+	font-size: 34px;
+}
+
+.homepage-option-one{
+background: url('../resources/bg_containers/level_choice_farm_a.png') no-repeat;
+}
+
+.homepage-option-two{
+background: url('../resources/bg_containers/level_choice_earth_a.png') no-repeat;
+}
+
+
+.word-bank-index div.story-page{
+	background: none;
+}
+
+.word-bank-index{
+	background: url('../resources/bg_containers/letter_room_bg.png') no-repeat;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.word-bank-index div.story-page .story-text h1 a{
+	color: rgb(26, 24, 24);
+	height: 120px;
+	float: left;
+	width: 260px;
+	text-align: center;
+	padding-top: 65px;
+	background: url('../resources/bg_containers/260px_width/word_bank_blue_purple.png') 0 0;
+}
+
+.word-bank-index div.story-page .story-text h1 a:hover{
+		background: url('../resources/bg_containers/260px_width/word_bank_blue_purple.png') 0 -190px;
+		color: white;
+
+}
+
+.word-bank-bg-green{
+	background: url('../resources/bg_containers/260px_width/word_bank_blue_purple.png') no-repeat;
+}
+
+.word-bank-bg-purple{
+	background: url('../resources/bg_containers/260px_width/level_choice_earth_a.png') no-repeat;
+}
+
+.word-bank-bg-yellow{
+	background: url('../resources/bg_containers/260px_width/level_choice_earth_a.png') no-repeat;
+}
+
+/*Letter room styles*/
+
+.letter-room-h2{
+	float: left;
+	width: 140px;
+	height: 140px;
+	font-size: 70px;
+	background-color: red;
+}
+
+.letter-container-div{
+	text-align: center;
+}
+
+.story-text{
+	padding: 1% 10%;
+	font-size: 20pt;
+}

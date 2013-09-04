@@ -1,0 +1,242 @@
+.score-circle{
+	background: url('../assets/game_score_circle.png') no-repeat;
+	width: 40px;
+	height: 41px;
+}
+
+#measurelevel table{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#measurelevel td{
+	font-size: 24px;
+	line-height: 34px;
+	text-align: center;
+	margin-left: 50px;
+	padding: 20px;
+}
+
+#measurelevel .navbar{
+	margin-bottom: 0px;}
+
+
+#measurelevel #fpanels{
+	height: auto;
+	
+}
+
+#measurelevel .not-ready-yet{
+	height: auto;
+	padding-top: 20px;
+}
+
+#canvas_comparison{
+	display:none;
+}
+
+#myTabContent{
+	background-color:white;
+	padding-bottom: 40px;
+
+}
+
+#measurelevel #myTab{
+	margin-bottom: 0px;
+}
+
+.comparison-container-box{
+	padding: 40px;
+	border: 2px #66cc99 solid;
+	width: 70%;
+	margin: 20px auto;
+}
+
+#comparison-information{
+
+}
+
+#fade-first, #fade-second, #fade-third{
+	display:none;
+}
+
+.enter-button{
+  font-size: 32pt;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 150, 20, 0.8);
+  color: white;
+}
+/* GAME FRAME */
+
+#game-frame{
+	
+	width: 1024px;
+	margin: 0px;
+	height: 768px;
+	background-color: white;
+	position: relative;
+	background: url('../assets/game/alien_bg_game_resized.png') no-repeat;
+	overflow: hidden;
+	
+}
+
+.reading-challenge .not-ready-yet{
+	height: auto;
+}
+
+#picture-frame-left{
+	position: absolute;
+	top: -300px;
+	left: 40px;
+	/*display: none;*/
+}
+
+#game-image-left{
+	position: absolute;
+	top: 126px;
+	left: 53px;
+}
+
+#game-image-right{
+	position:absolute;
+	top: 73px;
+	right: 41px;
+}
+
+#picture-frame-right{
+	position: absolute;
+	top: -300px;
+	right: 40px;
+	/*display: none;*/
+}
+
+#fruitmachine-body{
+	position: absolute;
+	bottom: -10px;
+	left: 70px;
+	display: none;
+}
+
+.word-container-class{
+	position:absolute;
+	top: 388px;
+	height: 257px;
+}
+
+.sound-button-game-class{
+	position: absolute;
+	bottom: 0px;
+	right: 5px;
+
+}
+
+#sound-button-1{
+	
+}
+
+#sound-button-2{
+	
+}
+
+#sound-button-3{
+	
+}
+
+#play-button-game{
+	position: absolute;
+	top: 306px;
+	left: 434px;
+}
+
+.word-container-class p{
+	position: absolute;
+	font-size: 70pt;
+	bottom: 140px;
+	left: 10px;
+}
+
+#word-container-1{
+	left: 212px;
+}
+#word-container-2{
+	left: 293px;
+}
+#word-container-3{
+	left: 375px;
+}
+#word-container-4{
+	left: 456px;
+}
+#word-container-5{
+	left: 535px;
+}
+#word-container-6{
+	left: 613px;
+}
+
+#progress-bar{
+	position: absolute;
+	top:294px;
+	right: 30px;
+	display: none;
+	overflow: hidden
+}
+
+
+#timer-progress-bar{
+   position:absolute;
+   display:inherit
+}
+
+#timer-progress-frame{
+	position:relative;
+	display:inherit;
+
+}
+
+#correct-word-position{
+	position: absolute;
+	font-size: 36pt;
+	top: 100px;
+	left: 100px;
+}
+
+#displayCounter{
+        position: absolute;
+        top: 53px;
+        left: 38px;
+        font-size:78px;
+        display: inherit;
+}
+
+
+#score{
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        display:none;
+        left: 462px;
+        top: 94px;
+
+}
+
+#game-score-circle{
+        position: relative;
+        top: 0px;
+        left: 0px;
+        display: inherit;
+}
+
+#flash-message p{
+	font-size: 80pt;
+	margin: 20px;
+}
+
+.picture-frames {
+	
+}
+
+.common-picture-frame{
+
+}

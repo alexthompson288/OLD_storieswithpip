@@ -82,16 +82,17 @@ a{
 	width: 70px;
 	height: 74px;
 	position: absolute;
-	top: 23%;
-	left: 49%;
-	text-indent: 100%;
+	top: 26%;
+	left: 47%;
+	font-size: 32pt;
+	/*text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
-	background: url('../resources/readingpad/general_button_play_sprite_fruitmachine.png') 0 0;
+	background: url('../resources/readingpad/general_button_play_sprite_fruitmachine.png') 0 0;*/
 }
 
 .play-whole-word-container:hover{
-	background: url('../resources/readingpad/general_button_play_sprite_fruitmachine.png') 0 -72px;
+	/*background: url('../resources/readingpad/general_button_play_sprite_fruitmachine.png') 0 -72px;*/
 }
 
 .play-whole-word-button{
@@ -145,6 +146,15 @@ a{
 .double-letter-container{
 	width: 32.333333%;
 	position: absolute;
+}
+
+.double-letter-button{
+	background: url('../resources/readingpad/round_buttons_digraph.png') -135px 239px;;
+}
+
+.double-letter-button:hover{
+	background: url('../resources/readingpad/round_buttons_digraph.png') -138px 162px;;
+
 }
 
 /*The letter part of the div
@@ -267,7 +277,7 @@ Empty star divs
 
 .bookshelf-div-container{
 	position: absolute;
-	top: 210px;
+	top: 170px;
 	left: 10%;
 	width: 80%;
 	height: 60%;
@@ -347,28 +357,47 @@ Empty star divs
 /*Homepage styling*/
 
 .homepage-option{
-position: relative;
-float: left;
-width: 350px;
-margin-right: 40px;
-height: 260px;
+width: 261px;
+height: 197px;
+position: absolute;
+
+}
+
+.homepage-navigation{
 
 }
 
 .homepage-option h2{
 	position: absolute;
-	top: 110px;
-	left: 70px;
 	font-size: 34px;
+	padding: 61px 48px;
 }
 
 .homepage-option-one{
-background: url('../resources/bg_containers/level_choice_farm_a.png') no-repeat;
+	left: 50px;
+	top: 20px;
+
 }
 
 .homepage-option-two{
-background: url('../resources/bg_containers/level_choice_earth_a.png') no-repeat;
+	right: 50px;
+	top: 20px;
 }
+.homepage-option-two h2{
+	padding: 78px 55px;
+}
+
+.homepage-option-three{
+	left: 50px;
+	bottom: 20px;
+}
+
+.homepage-option-four{
+	right: 50px;
+	bottom: 20px;
+}
+
+
 
 
 .word-bank-index div.story-page{
@@ -389,39 +418,135 @@ background: url('../resources/bg_containers/level_choice_earth_a.png') no-repeat
 	width: 260px;
 	text-align: center;
 	padding-top: 65px;
-	background: url('../resources/bg_containers/260px_width/word_bank_blue_purple.png') 0 0;
+	/*background: url('../resources/bg_containers/260px_width/word_bank_blue_purple.png') 0 0;*/
 }
 
-.word-bank-index div.story-page .story-text h1 a:hover{
+/*.word-bank-index div.story-page .story-text h1 a:hover{
 		background: url('../resources/bg_containers/260px_width/word_bank_blue_purple.png') 0 -190px;
 		color: white;
 
-}
+}*/
 
 .word-bank-bg-green{
-	background: url('../resources/bg_containers/260px_width/word_bank_blue_purple.png') no-repeat;
+	background: url('../resources/bg_containers/260px_width/word_bank_green_yellow.png') 0 0;
+}
+
+.word-bank-bg-green:hover{
+	background: url('../resources/bg_containers/260px_width/word_bank_green_yellow.png') 0 -190px;
+	color: white !important;
 }
 
 .word-bank-bg-purple{
-	background: url('../resources/bg_containers/260px_width/level_choice_earth_a.png') no-repeat;
+	background: url('../resources/bg_containers/260px_width/word_bank_blue_purple.png') 0 0;
+}
+
+.word-bank-bg-purple:hover{
+	background: url('../resources/bg_containers/260px_width/word_bank_blue_purple.png') 0 -190px;
+	color: white !important;
 }
 
 .word-bank-bg-yellow{
-	background: url('../resources/bg_containers/260px_width/level_choice_earth_a.png') no-repeat;
+	background: url('../resources/bg_containers/260px_width/word_bank_yellow_purple.png') 0 0;
+}
+
+.word-bank-bg-yellow:hover{
+	background: url('../resources/bg_containers/260px_width/word_bank_yellow_purple.png') 0 -190px;
+	color: white !important;
 }
 
 /*Letter room styles*/
 
+.letter-index{
+	background: url('../resources/bg_containers/forest_bg_transparency.png') no-repeat;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+}
+
 .letter-room-h2{
-	float: left;
-	width: 140px;
-	height: 140px;
 	font-size: 70px;
 	background-color: red;
+	padding: 11px 22px;
 }
 
 .letter-container-div{
 	text-align: center;
+}
+
+.letterroom-letter-container-div{
+	width: 130px;
+	height: 105px;
+	float: left;
+	margin: 20px 5px;
+	text-align: center;
+}
+
+.letter-room-bg-green{
+	background: url('../resources/bg_containers/260px_width/letter_room_green_yellow.png') 0 0;
+}
+
+.letter-room-bg-green:hover{
+	background: url('../resources/bg_containers/260px_width/letter_room_green_yellow.png') 0 -95px;
+	color: white !important;
+}
+
+.letter-room-bg-purple{
+	background: url('../resources/bg_containers/260px_width/letter_room_blue_purple.png') 0 0;
+}
+
+.letter-room-bg-purple:hover{
+	background: url('../resources/bg_containers/260px_width/letter_room_blue_purple.png') 0 -95px;
+	color: white !important;
+}
+
+.letter-room-bg-yellow{
+	background: url('../resources/bg_containers/260px_width/letter_room_yellow_purple.png') 0 0;
+}
+
+.letter-room-bg-yellow:hover{
+	background: url('../resources/bg_containers/260px_width/letter_room_yellow_purple.png') 0 -95px;
+	color: white !important;
+}
+
+.letter-room-bg-white-black{
+	background: url('../resources/bg_containers/260px_width/letter_room_white_black.png') 0 0;
+}
+
+.letter-room-bg-white-black:hover{
+	background: url('../resources/bg_containers/260px_width/letter_room_white_black.png') 0 -95px;
+	color: white !important;
+}
+
+.letter-room-bg-green-green{
+	background: url('../resources/bg_containers/260px_width/letter_room_green_green.png') 0 0;
+}
+
+.letter-room-bg-green-green:hover{
+	background: url('../resources/bg_containers/260px_width/letter_room_green_green.png') 0 -95px;
+	color: white !important;
+}
+
+.letter-room-bg-pink-red{
+	background: url('../resources/bg_containers/260px_width/letter_room_pink_red.png') 0 0;
+}
+
+.letter-room-bg-pink-red:hover{
+	background: url('../resources/bg_containers/260px_width/letter_room_pink_red.png') 0 -95px;
+	color: white !important;
+}
+
+#mnemonic-div{
+	display: none;
+	position: absolute;
+	top: 60px;
+	width: 500px;
+	height: 600px;
+	background-color: rgba(255, 10, 12, 0.5);
+	left: 249px;
+	padding: 20px;
+	font-size: 19pt;
+	border: 3px dotted blue;
 }
 
 .story-text{

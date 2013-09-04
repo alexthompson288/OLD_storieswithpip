@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	console.log('ready');
-	addLinkToAllWords('pip pit tap pat rat bat cat dog pain');
+	addLinkToAllWords('rain train tap pat rat bat cat dog pain');
 	randomClassOnWordBank();
 	$('.story-text a').click(activateReadingPad);
 });
